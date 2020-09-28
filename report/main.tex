@@ -1,0 +1,37 @@
+\documentclass[a4, 12pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{titlesec} % center section titles
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{cases}
+
+\usepackage[hidelinks,
+pdftitle={Concurrent Systems - Laboratory Assignment 2},
+pdfauthor={Nhan D. Dao}]{hyperref}
+
+\usepackage{cleveref}
+
+\title={Concurrent Systems - Laboratory Assignment 2}
+\author{Nhan D. Dao}
+\date{19-03-2020}
+
+% Control output of sections
+\renewcommand{\thesubsection}{\alph{subsection}}
+\titleformat{\section}[block]{\normalfont\bf\color{blue}}{Q \thesection.}{1em}{}
+\titleformat{\subsection}[block]{\small\bf\color{gray}}{\thesection-\thesubsection.}{1 em}{}
+\titlespacing*{\section}
+{0pt}% left
+{3.25ex plus 1ex minus .2ex}% before
+{10pt}% after
+
+\begin{document}
+	
+	\pagenumbering{gobble}
+	\maketitle
+	
+	\newpage
+	\pagenumbering{arabic}
+	
+\end{document}
