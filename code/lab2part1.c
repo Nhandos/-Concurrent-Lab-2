@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
 	
 	
 	for(i = 0; i < thread_count; i++) {
-		pthread_create(&thread_handles[i], NULL, &Thread_work, i);
+		pthread_create(&thread_handles[i], NULL, &Thread_work, (void*) i);
 	}
 		
 	for(i = 0; i < thread_count; i++) {

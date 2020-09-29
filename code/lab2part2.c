@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
 	
     /* Start the threads. */
     for (i = 0; i < thread_count; i++) {
-        pthread_create(&thread_handles[i], NULL, &Thread_work, i);
+        pthread_create(&thread_handles[i], NULL, &Thread_work, (void*) i);
     }
 	
     /* Wait for threads to complete. */
