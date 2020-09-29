@@ -1,37 +1,53 @@
-\documentclass[a4, 12pt]{article}
-\usepackage[margin=25mm]{geometry}
-\usepackage{parskip}
-\usepackage{graphicx}
-\usepackage{titlesec} % center section titles
-\usepackage{xcolor}
-\usepackage{amsmath}
-\usepackage{cases}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wenneker Assignment
+% LaTeX Template
+% Version 2.0 (12/1/2019)
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Vel (vel@LaTeXTemplates.com)
+% Frits Wenneker
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[hidelinks,
-pdftitle={Concurrent Systems - Laboratory Assignment 2},
-pdfauthor={Nhan D. Dao}]{hyperref}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
 
-\usepackage{cleveref}
+\documentclass[11pt]{scrartcl} % Font size
 
-\title={Concurrent Systems - Laboratory Assignment 2}
-\author{Nhan D. Dao}
-\date{19-03-2020}
+\input{structure.tex} % Include the file specifying the document structure and custom commands
 
-% Control output of sections
-\renewcommand{\thesubsection}{\alph{subsection}}
-\titleformat{\section}[block]{\normalfont\bf\color{blue}}{Q \thesection.}{1em}{}
-\titleformat{\subsection}[block]{\small\bf\color{gray}}{\thesection-\thesubsection.}{1 em}{}
-\titlespacing*{\section}
-{0pt}% left
-{3.25ex plus 1ex minus .2ex}% before
-{10pt}% after
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{	
+	\normalfont\normalsize
+	\textsc{Curtin University, Concurrent Systems}\\ % Your university, school and/or department name(s)
+	\vspace{25pt} % Whitespace
+	\rule{\linewidth}{0.5pt}\\ % Thin top horizontal rule
+	\vspace{20pt} % Whitespace
+	{\huge Lab report 2}\\ % The assignment title
+	\vspace{12pt} % Whitespace
+	\rule{\linewidth}{2pt}\\ % Thick bottom horizontal rule
+	\vspace{12pt} % Whitespace
+}
+
+\author{\LARGE Nhan Dao} % Your name
+
+\date{\normalsize\today} % Today's date (\today) or a custom date
 
 \begin{document}
-	
-	\pagenumbering{gobble}
-	\maketitle
-	
-	\newpage
-	\pagenumbering{arabic}
-	
+
+\maketitle % Print the title
+
+\input{sections/section_1.tex} % Monte Carlo's extimation of Pi using POSIX's pthreads	
+\input{sections/section_2.tex} % Trapezoid rule with POSIX's Pthreads
+
 \end{document}

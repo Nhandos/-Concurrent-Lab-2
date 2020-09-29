@@ -106,7 +106,7 @@ void *Thread_work(void* rank) {
     my_int = Trap(local_a, local_b, local_n, h);
 	
     switch (method) {
-        case 2:
+    case 2:
         sem_wait(&sem);
         total += my_int;
         sem_post(&sem);
@@ -117,9 +117,7 @@ void *Thread_work(void* rank) {
         flag = (flag + 1) % thread_count;
 	break;
 	default:
-        pthread_mutex_lock(&mutex);
         total += my_int;
-        pthread_mutex_unlock(&mutex);
         
 	    break;
     }

@@ -99,8 +99,6 @@ void *Thread_work(void* rank) {
 	return NULL;
 }
 
-
-
 /*------------------------------------------------------------------
  * Function:    Get_args
  * Purpose:     Get the command line args
