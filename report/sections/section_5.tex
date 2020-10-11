@@ -1,0 +1,32 @@
+
+%----------------------------------------------------------------------------------------
+% Caching on parallel execution
+%----------------------------------------------------------------------------------------
+
+
+\section{Caching on parallel execution}
+
+\subsection{Compile and run the programme and complete the following table of run times and efficiencies}
+
+Remember that the run time for a single trial is that of the slowest thread, and that we should benchamrk the
+the run time for our programme by taking multiple trials and picking the minimum.
+
+\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}| }
+    \hline
+    \multirow{2}{4em}{} & \multicolumn{6}{|c|}{\textbf{Matrix Dimensions}} \\
+    \cline{2-7}
+    & \multicolumn{2}{|c|}{\textbf{8000000x8}} 
+    & \multicolumn{2}{|c|}{\textbf{8000x8000}} 
+    & \multicolumn{2}{|c|}{\textbf{8x8000000}} \\
+    \hline
+    Threads & Time (s) & Eff (\%) & Time (s) & Eff (\%) & Time (s) & Eff (\%) \\
+    \hline
+    \textbf{1} & 0.236 & 100 & 0.188 & 100 & 0.188 & 100 \\
+    \hline
+    \textbf{2} & 0.122 & 96.72 & 0.0945 & 99.47 & 0.2268 & 41.45 \\
+    \hline
+    \textbf{4} & 6.8422e-02 & 86.23 & 4.836e-02 & 97.19 & 0.181 & 25.97 \\
+    \hline
+    \textbf{8} & 6.6097e-02 & 44.6 & 3.66e-02 & 64.21 & 0.229 & 10.26 \\
+    \hline
+\end{tabular}

@@ -37,6 +37,8 @@ The race-condition is mitigated by the mutex lock. The producer-consumer have sh
 of a buffer. Without the mutex lock, both threads can modify the buffer at the same time which is a race
 condition.
 
+%----------------------------------------------------------------------------------------
+
 \subsection{What is the producer thread doing while the consumer thread is active and vice-versa?}.
 
 The producer thread is waiting for the \emph{condp} signal from the consumer, which tells the producer 
@@ -44,6 +46,8 @@ thread to exit the conditional wait loop and modify the buffer.
 
 Vice-versa, the consumer thread is waiting for the \emph{condc} signal from the producer, which tells
 the consumer that theres item in the buffer.
+
+%----------------------------------------------------------------------------------------
 
 \subsection{What is the value in \emph{buffer} just before the main function terminates and will it always be the same?}
 
