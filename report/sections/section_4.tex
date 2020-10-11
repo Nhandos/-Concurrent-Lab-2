@@ -1,0 +1,55 @@
+
+%----------------------------------------------------------------------------------------
+% Producer-Consumer 
+%----------------------------------------------------------------------------------------
+
+
+\section{Producer-Consumer}
+
+%----------------------------------------------------------------------------------------
+
+\subsection{What information is being written into and read from the buffer (in lab2part4.c)?}
+
+The producer is writting into the buffer the count to the number of iterations \emph{i}, and the consumer
+is attempts to read the value and sets the buffer to zero.
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Describe in detail the action of the producer and consumer thread as well as the flow of execution.}
+
+The \emph{producer} enters the critical section and attempts to sets the buffer to the value \emph{i}, 
+which is the current loop iteration - if the value of the buffer is non-zero, it means that the consumer 
+has not read from the buffer. This trigger a conditional wait, where the consumers releases the lock,
+and awaits for a signal. When the buffer is ready to be modify, the \emph{producer} sets the buffer to
+the value of $i$ and then signals \emph{condc} which tells the \emph{consumer} that there's item in the
+buffer.
+
+Vice versa, as the \emph{consumer} enters its critical section and attempts to read the buffer - if the buffer is
+zero means that it's empty, then the consumer enters a conditional wait for the \emph{condc} signal. When
+the buffer is non-zero, it then sets the value of the buffer to zero, and signal the \emph{condp} signal to
+notify the \emph{producer} thread to place item in the buffer.
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Is there a race condition? Fully justify your answer}
+
+The race-condition is mitigated by the mutex lock. The producer-consumer have shared memory in the form
+of a buffer. Without the mutex lock, both threads can modify the buffer at the same time which is a race
+condition.
+
+\subsection{What is the producer thread doing while the consumer thread is active and vice-versa?}.
+
+The producer thread is waiting for the \emph{condp} signal from the consumer, which tells the producer 
+thread to exit the conditional wait loop and modify the buffer.
+
+Vice-versa, the consumer thread is waiting for the \emph{condc} signal from the producer, which tells
+the consumer that theres item in the buffer.
+
+\subsection{What is the value in \emph{buffer} just before the main function terminates and will it always be the same?}
+
+It will always be zero because the consumer and producer thread knows before hand how many times buffer is 
+modified in the form of the MAX variable.
+
+
+
+

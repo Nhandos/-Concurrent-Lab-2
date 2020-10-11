@@ -117,8 +117,9 @@ void *Thread_work(void* rank) {
         flag = (flag + 1) % thread_count;
 	break;
 	default:
+        pthread_mutex_lock(&mutex);
         total += my_int;
-        
+        pthread_mutex_unlock(&mutex);
 	    break;
     }
     
@@ -146,7 +147,6 @@ double Trap(
     integral = integral*h;
     return integral;
 } /*  Trap  */
-
 
 /*--------------------------------------------------------------*/
 double f(double x) {
